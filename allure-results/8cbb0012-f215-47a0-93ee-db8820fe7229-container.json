@@ -1,0 +1,1 @@
+{"uuid":"8cbb0012-f215-47a0-93ee-db8820fe7229","name":"test.Tests","children":["243eda51-fcdb-488b-b1fe-850ab2d3a364"],"befores":[{"name":"android_setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1689490855972,"stop":1689490865874}],"afters":[],"start":1689490855948,"stop":1689490868092}
