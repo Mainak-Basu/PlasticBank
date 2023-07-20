@@ -32,7 +32,7 @@ protected static String randomPhoneNumber;
 	dc.setCapability(MobileCapabilityType.DEVICE_NAME, "Z585R8TSRWQKSGQO");
 	dc.setCapability("appPackage", "org.plasticbank.app");
 	dc.setCapability("appActivity", "org.plasticbank.app.MainActivity");
-	dc.setCapability("noReset", true);
+	//dc.setCapability("noReset", true);
 	URL url = new URL("http://127.0.0.1:4723/wd/hub");
    android_driver = new AndroidDriver(url,dc);
    
