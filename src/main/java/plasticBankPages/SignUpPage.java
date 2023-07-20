@@ -21,7 +21,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class SignUpPage extends BaseClass{
-	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
+	
 	
 public SignUpPage(AndroidDriver android_driver) {
 		
@@ -130,7 +130,7 @@ public WebElement allow;
 //functions:-
 
 public void clickSignUpButton() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(permission)));
 	permission.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(signUpButton)));
@@ -141,19 +141,19 @@ public void clickSignUpButton() {
 }
 
 public void chooseCollectorsPannel() throws InterruptedException {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(collectorsPannel)));
 	Thread.sleep(2000);
 	collectorsPannel.click();
 }
 
 public void clickBecomeAColectorButton() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(becomeACollectorButton)));
 	becomeACollectorButton.click();
 }
 public void uploadphoto() throws InterruptedException {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(takePhoto)));
 	takePhoto.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(camera)));
@@ -181,18 +181,18 @@ public void uploadphoto() throws InterruptedException {
 }
 
 public void enterFirstName(String name) {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(firstNameTextField)));
 	firstNameTextField.sendKeys(name);
 }
 public void enterLastName(String lastname) {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(lastNameTextField)));
 	lastNameTextField.sendKeys(lastname);
 	System.out.println(lastname);
 }
 public void random_enterLastName() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(lastNameTextField)));
 	String randomLastName = RandomStringUtils.randomAlphabetic(5);
 	lastNameTextField.sendKeys(randomLastName);
@@ -200,14 +200,14 @@ public void random_enterLastName() {
 }
 
 public void enterPhoneNumberRandom() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneNumberTextField)));
 	phoneNumberTextField.click();
 	phoneNumberTextField.sendKeys(randomPhoneNumber);
     
 }
 public void enterPhoneNumber(String phoneNumber) {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneNumberTextField)));
 	phoneNumberTextField.click();
 	phoneNumberTextField.sendKeys(phoneNumber);
@@ -215,7 +215,7 @@ public void enterPhoneNumber(String phoneNumber) {
 }
 
 public void chosenCountryCode() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneCountryCodedropdown)));
 	phoneCountryCodedropdown.click();
 	
@@ -246,7 +246,7 @@ private boolean isElementDisplayed(WebElement element) {
 }
 
 public void enterDOB() throws InterruptedException {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(dateOfBirthTextField)));
 	dateOfBirthTextField.click();
 	
@@ -276,7 +276,7 @@ public void selectGender() throws InterruptedException {
         PointerInput.Origin.viewport(), 1000, 200));
     scrolla.addAction(finger1.createPointerUp(0));
     android_driver.perform(Arrays.asList(scrolla));
-	
+    WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(genderField)));
 	genderField.click();
 	
@@ -285,24 +285,24 @@ public void selectGender() throws InterruptedException {
 	oKButton.click();
 }
 public void enterpassword(String password) {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(passwordTextField)));
 	passwordTextField.sendKeys(password);
 	confirmPasswordTextField.sendKeys(password);
 }
 public void clicktermsandconditions() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(termsAndConditionsCheckBox)));
 	termsAndConditionsCheckBox.click();
 }
 public void finalconfirm() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(finalconfirmation)));
 	finalconfirmation.click();
 	}
 
 public void verifyAccount() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(editButton)));
 	editButton.click();
 	
@@ -321,22 +321,22 @@ public void verifyAccount() {
 }
 
 public void clickmenu() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menu)));
 	menu.click();
 }
 public void clickbackarrow() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(arrowBack)));
 	arrowBack.click();
 }
 public void clicklogout() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(logout)));
 	logout.click();
 }
 public void skipForNow() {
-	
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(skipButton)));
      skipButton.click();
 }
