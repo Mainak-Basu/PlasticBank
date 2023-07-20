@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Jul 20 13:29:07 IST 2023</td>
+<td>Started on:</td><td>Thu Jul 20 18:02:24 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>64 seconds (64174 ms)</td>
+<tr><td>Total time:</td><td>120 seconds (120745 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,14 +75,12 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='test.Tests.signUp()'><b>signUp</b><br>Test class: test.Tests</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for condition (visibility of Located by By.chained({By.xpath: //android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView})) to be refreshed (tried for 10 second(s) with 500 milliseconds interval)
+<td title='test.Tests.createBanchAndMember()'><b>createBanchAndMember</b><br>Test class: test.Tests</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for condition (visibility of Located by By.chained({AppiumBy.id: tab-t5-2})) to be refreshed (tried for 40 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at plasticBankPages.SignUpPage.chosenCountryCode(SignUpPage.java:219)
-	at plasticBankPages.SignUpPage.fillDetailsRandom(SignUpPage.java:347)
-	at plasticBankPages.SignUpPage.signUpRandom(SignUpPage.java:375)
-	at test.Tests.signUp(Tests.java:26)
+	at plasticBankPages.CreateBusinessPage.addMemberToCreatedBranch(CreateBusinessPage.java:184)
+	at test.Tests.createBanchAndMember(Tests.java:38)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -111,7 +109,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({By.xpath: //android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView})
+Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.id: tab-t5-2})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:125)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
 	at org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4.isDisplayed(&lt;generated&gt;)
@@ -122,14 +120,14 @@ Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an elem
 	at org.openqa.selenium.support.ui.ExpectedConditions$25.apply(ExpectedConditions.java:717)
 	at org.openqa.selenium.support.ui.ExpectedConditions$25.apply(ExpectedConditions.java:713)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-	... 32 more
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@367f0121 (tried for 1 second(s) with 500 milliseconds interval)
+	... 30 more
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@22bf9122 (tried for 1 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:98)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:118)
-	... 41 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.xpath: //android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView})
+	... 39 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.id: tab-t5-2})
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
@@ -148,15 +146,13 @@ Driver info: driver.version: RemoteWebDriver
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:171)
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:164)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-	... 43 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1579140143", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1579140143'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for condition (visibility of Located by By.chained({By.xpath: //android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView})) to be refreshed (tried for 10 second(s) with 500 milliseconds interval)
+	... 41 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace2045188238", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2045188238'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for condition (visibility of Located by By.chained({AppiumBy.id: tab-t5-2})) to be refreshed (tried for 40 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at plasticBankPages.SignUpPage.chosenCountryCode(SignUpPage.java:219)
-	at plasticBankPages.SignUpPage.fillDetailsRandom(SignUpPage.java:347)
-	at plasticBankPages.SignUpPage.signUpRandom(SignUpPage.java:375)
-	at test.Tests.signUp(Tests.java:26)
+	at plasticBankPages.CreateBusinessPage.addMemberToCreatedBranch(CreateBusinessPage.java:184)
+	at test.Tests.createBanchAndMember(Tests.java:38)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -185,7 +181,7 @@ Driver info: driver.version: RemoteWebDriver
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({By.xpath: //android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView})
+Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.id: tab-t5-2})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:125)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.intercept(InterceptorOfASingleElement.java:59)
 	at org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4.isDisplayed(&lt;generated&gt;)
@@ -196,14 +192,14 @@ Caused by: org.openqa.selenium.NoSuchElementException: Can&apos;t locate an elem
 	at org.openqa.selenium.support.ui.ExpectedConditions$25.apply(ExpectedConditions.java:717)
 	at org.openqa.selenium.support.ui.ExpectedConditions$25.apply(ExpectedConditions.java:713)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-	... 32 more
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@367f0121 (tried for 1 second(s) with 500 milliseconds interval)
+	... 30 more
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@22bf9122 (tried for 1 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:98)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:118)
-	... 41 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.xpath: //android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView})
+	... 39 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.id: tab-t5-2})
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
@@ -222,10 +218,10 @@ Driver info: driver.version: RemoteWebDriver
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:171)
 	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:164)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-	... 43 more
+	... 41 more
 </pre></div></td>
-<td>43</td>
-<td>test.Tests@20b2475a</td></tr>
+<td>102</td>
+<td>test.Tests@7857fe2</td></tr>
 </table><p>
 </body>
 </html>

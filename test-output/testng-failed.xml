@@ -5,7 +5,7 @@
     <classes>
       <class name="test.Tests">
         <methods>
-          <include name="signUp"/>
+          <include name="createBanchAndMember"/>
           <include name="setup"/>
           <include name="generateRandomNumber"/>
         </methods>

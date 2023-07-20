@@ -33,6 +33,8 @@ public class Login extends BaseClass{
 		public WebElement passwordTextFeild;
 		@AndroidFindBy(id= "org.plasticbank.app:id/action_bar_root")
 		public WebElement loadedPage;
+		@AndroidFindBy(uiAutomator = "new UiSelector().text(\"While using the app\")")
+		public WebElement permission;
 		
 		
 		
@@ -55,6 +57,7 @@ public class Login extends BaseClass{
 			passwordTextFeild.sendKeys(password);
 			passwordTextFeild.click();
 			android_driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+			
 		}
 			
 		public void menu() {
@@ -97,6 +100,9 @@ public class Login extends BaseClass{
 			enterPassword(password);
 		}
 		public void login(String phoneNumber, String password) {
+			WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(300));
+			wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(permission)));
+			permission.click();
 			clickloginButton();
 			enterPhoneNumber(phoneNumber);
 			enterPassword(password);
