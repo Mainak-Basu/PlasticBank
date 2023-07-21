@@ -36,5 +36,6 @@ public void createBanchAndMember() throws InterruptedException {
 	CreateBusinessPage cpb = new CreateBusinessPage(android_driver);
 	cpb.createBranch();
 	cpb.addMemberToCreatedBranch();
+	
 }
 }

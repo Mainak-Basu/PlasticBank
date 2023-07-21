@@ -96,9 +96,9 @@ public WebElement addButton;
 public WebElement doneButton;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Next\")")
 public WebElement nextButton;
-@AndroidFindBy(id = "tab-t5-2")
+@AndroidFindBy(id = "tab-t1-2")
 public WebElement membersTab;
-@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").instance(0)")
+@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").instance(2)")
 public WebElement addmember;
 @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.EditText\").instance(0)")
 public WebElement branchMemberNameTextField;
@@ -129,33 +129,35 @@ public void createBranch() throws InterruptedException {
 	permission.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(allow)));
 	allow.click();
+	Thread.sleep(10000);
+	// android_driver.pressKey(new KeyEvent(AndroidKey.CAMERA));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(shutter)));
 	shutter.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(photoDone)));
 	photoDone.click();
 	Thread.sleep(2000);
-	PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-    Sequence scroll = new Sequence(finger, 1);
-    scroll.addAction(finger.createPointerMove(Duration.ofMillis(0),
+	PointerInput fingerconfirm = new PointerInput(PointerInput.Kind.TOUCH, "fingerconfirm");
+    Sequence scrollconfirm = new Sequence(fingerconfirm, 1);
+    scrollconfirm.addAction(fingerconfirm.createPointerMove(Duration.ofMillis(0),
         PointerInput.Origin.viewport(), 550, 2030));
-    scroll.addAction(finger.createPointerDown(0));
-    scroll.addAction(finger.createPointerMove(Duration.ofMillis(100),
+    scrollconfirm.addAction(fingerconfirm.createPointerDown(0));
+    scrollconfirm.addAction(fingerconfirm.createPointerMove(Duration.ofMillis(100),
         PointerInput.Origin.viewport(), 550, 2030));
-    scroll.addAction(finger.createPointerUp(0));
-    android_driver.perform(Arrays.asList(scroll));
+    scrollconfirm.addAction(fingerconfirm.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollconfirm));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(businessNameTextField)));
 	String randomBusinessName = RandomStringUtils.randomAlphabetic(5);
 	businessNameTextField.sendKeys("Gayas "+randomBusinessName);
 	Thread.sleep(2000);
-	PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-    Sequence scrolla = new Sequence(finger1, 1);
-    scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(0),
+	PointerInput fingerscrolluptocheckbox = new PointerInput(PointerInput.Kind.TOUCH, "fingerscrolluptocheckbox");
+    Sequence scrollscrolluptocheckbox = new Sequence(fingerscrolluptocheckbox, 1);
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerMove(Duration.ofMillis(0),
         PointerInput.Origin.viewport(), 170, 1870));
-    scrolla.addAction(finger1.createPointerDown(0));
-    scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(1000),
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerDown(0));
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerMove(Duration.ofMillis(1000),
         PointerInput.Origin.viewport(), 170, 300));
-    scrolla.addAction(finger1.createPointerUp(0));
-    android_driver.perform(Arrays.asList(scrolla));
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollscrolluptocheckbox));
     wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(mondayCheckBox)));
     mondayCheckBox.click();
     tuesdayCheckBox.click();
@@ -181,8 +183,16 @@ public void createBranch() throws InterruptedException {
 
 public void addMemberToCreatedBranch() throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(40));
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(membersTab)));
-	membersTab.click();
+	Thread.sleep(2000);
+	PointerInput fingermembertab = new PointerInput(PointerInput.Kind.TOUCH, "fingermembertab");
+    Sequence scrollmembertab = new Sequence(fingermembertab, 1);
+    scrollmembertab.addAction(fingermembertab.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 690, 2050));
+    scrollmembertab.addAction(fingermembertab.createPointerDown(0));
+    scrollmembertab.addAction(fingermembertab.createPointerMove(Duration.ofMillis(100),
+        PointerInput.Origin.viewport(), 690, 2050));
+    scrollmembertab.addAction(fingermembertab.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollmembertab));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(addmember)));
 	addmember.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(addmember)));
@@ -207,52 +217,46 @@ public void addMemberToCreatedBranch() throws InterruptedException {
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(nextButton)));
 	nextButton.click();
 	Thread.sleep(2000);
-	PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-    Sequence scrolla = new Sequence(finger1, 1);
-    scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(0),
+	PointerInput fingercameraicon = new PointerInput(PointerInput.Kind.TOUCH, "fingercameraicon");
+    Sequence scrollcameraicon = new Sequence(fingercameraicon, 1);
+    scrollcameraicon.addAction(fingercameraicon.createPointerMove(Duration.ofMillis(0),
         PointerInput.Origin.viewport(), 700, 900));
-    scrolla.addAction(finger1.createPointerDown(0));
-    scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(100),
+    scrollcameraicon.addAction(fingercameraicon.createPointerDown(0));
+    scrollcameraicon.addAction(fingercameraicon.createPointerMove(Duration.ofMillis(100),
         PointerInput.Origin.viewport(), 700, 900));
-    scrolla.addAction(finger1.createPointerUp(0));
-    android_driver.perform(Arrays.asList(scrolla));
+    scrollcameraicon.addAction(fingercameraicon.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollcameraicon));
     wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(takeA_PictureOption)));
 	takeA_PictureOption.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(shutter)));
 	shutter.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(photoDone)));
 	photoDone.click();
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(confirmButton)));
-	confirmButton.click();
+	Thread.sleep(2000);
+	PointerInput fingerConfirm = new PointerInput(PointerInput.Kind.TOUCH, "fingerConfirm");
+    Sequence scrollConfirm = new Sequence(fingerConfirm, 1);
+    scrollConfirm.addAction(fingerConfirm.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollConfirm.addAction(fingerConfirm.createPointerDown(0));
+    scrollConfirm.addAction(fingerConfirm.createPointerMove(Duration.ofMillis(100),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollConfirm.addAction(fingerConfirm.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollConfirm));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(nextButton)));
 	nextButton.click();
+
+
 	Thread.sleep(2000);
-	PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger2");
-    Sequence scrollb = new Sequence(finger2, 1);
-    scrollb.addAction(finger2.createPointerMove(Duration.ofMillis(0),
+	PointerInput fingerpassword = new PointerInput(PointerInput.Kind.TOUCH, "fingerpassword");
+    Sequence scrollpassword = new Sequence(fingerpassword, 1);
+    scrollpassword.addAction(fingerpassword.createPointerMove(Duration.ofMillis(0),
         PointerInput.Origin.viewport(), 320, 620));
-    scrollb.addAction(finger2.createPointerDown(0));
-    scrollb.addAction(finger2.createPointerMove(Duration.ofMillis(100),
+    scrollpassword.addAction(fingerpassword.createPointerDown(0));
+    scrollpassword.addAction(fingerpassword.createPointerMove(Duration.ofMillis(1000),
         PointerInput.Origin.viewport(), 320, 620));
-    scrollb.addAction(finger2.createPointerUp(0));
-    android_driver.pressKey(new KeyEvent(AndroidKey.P));
-    android_driver.pressKey(new KeyEvent(AndroidKey.A));
-    android_driver.pressKey(new KeyEvent(AndroidKey.S));
-    android_driver.pressKey(new KeyEvent(AndroidKey.S));
-    android_driver.pressKey(new KeyEvent(AndroidKey.W));
-    android_driver.pressKey(new KeyEvent(AndroidKey.O));
-    android_driver.pressKey(new KeyEvent(AndroidKey.R));
-    android_driver.pressKey(new KeyEvent(AndroidKey.D));
-    android_driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+    scrollpassword.addAction(fingerpassword.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollpassword));
     Thread.sleep(2000);
-    PointerInput finger3 = new PointerInput(PointerInput.Kind.TOUCH, "finger3");
-    Sequence scrollc = new Sequence(finger3, 1);
-    scrollc.addAction(finger3.createPointerMove(Duration.ofMillis(0),
-        PointerInput.Origin.viewport(), 320, 770));
-    scrollc.addAction(finger3.createPointerDown(0));
-    scrollc.addAction(finger3.createPointerMove(Duration.ofMillis(100),
-        PointerInput.Origin.viewport(), 320, 770));
-    scrollc.addAction(finger3.createPointerUp(0));
     android_driver.pressKey(new KeyEvent(AndroidKey.P));
     android_driver.pressKey(new KeyEvent(AndroidKey.A));
     android_driver.pressKey(new KeyEvent(AndroidKey.S));
@@ -262,8 +266,30 @@ public void addMemberToCreatedBranch() throws InterruptedException {
     android_driver.pressKey(new KeyEvent(AndroidKey.R));
     android_driver.pressKey(new KeyEvent(AndroidKey.D));
     android_driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(finishButton)));
+   
+   
+    PointerInput fingerconfirmpassword = new PointerInput(PointerInput.Kind.TOUCH, "fingerconfirmpassword");
+    Sequence scrollconfirmpassword = new Sequence(fingerconfirmpassword, 1);
+    scrollconfirmpassword.addAction(fingerconfirmpassword.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 320, 770));
+    scrollconfirmpassword.addAction(fingerconfirmpassword.createPointerDown(0));
+    scrollconfirmpassword.addAction(fingerconfirmpassword.createPointerMove(Duration.ofMillis(1000),
+        PointerInput.Origin.viewport(), 320, 770));
+    scrollconfirmpassword.addAction(fingerconfirmpassword.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollconfirmpassword));
+    android_driver.pressKey(new KeyEvent(AndroidKey.P));
+    android_driver.pressKey(new KeyEvent(AndroidKey.A));
+    android_driver.pressKey(new KeyEvent(AndroidKey.S));
+    android_driver.pressKey(new KeyEvent(AndroidKey.S));
+    android_driver.pressKey(new KeyEvent(AndroidKey.W));
+    android_driver.pressKey(new KeyEvent(AndroidKey.O));
+    android_driver.pressKey(new KeyEvent(AndroidKey.R));
+    android_driver.pressKey(new KeyEvent(AndroidKey.D));
+    android_driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+    Thread.sleep(5000);
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(finishButton)));
     finishButton.click();
+    Thread.sleep(5000);
     wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(crossButton)));
     crossButton.click();
     
