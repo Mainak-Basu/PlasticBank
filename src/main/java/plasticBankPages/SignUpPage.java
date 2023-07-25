@@ -1,9 +1,11 @@
 package plasticBankPages;
 
+import java.awt.*;
 import java.time.Duration;
 import java.util.Arrays;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -28,21 +30,23 @@ public SignUpPage(AndroidDriver android_driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(android_driver), this);
 	}
 //elements:-
-@AndroidFindBy(xpath= "//android.view.View[1]/android.view.View/android.view.View/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(0)")
 public WebElement loginPagePhoneNumberTextField;
-@AndroidFindBy(xpath= "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.RadioButton\").instance(0)")
+public WebElement firstcountryinlist;
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(0)")
 public WebElement loginPagePasswordTextField;
-@AndroidFindBy(xpath= "//android.view.View[12]/android.view.View/android.widget.CheckBox/android.widget.TextView")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.CheckBox\").instance(0)")
 public WebElement termsAndConditionsCheckBox;
-@AndroidFindBy(xpath= "//android.view.View[2]/android.view.View/android.view.View[9]/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(2)")
 public WebElement passwordTextField;
-@AndroidFindBy(xpath= "//android.view.View[2]/android.view.View/android.view.View[11]/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(3)")
 public WebElement confirmPasswordTextField;
 @AndroidFindBy(xpath= "//android.widget.ImageView[@content-desc=\"Shutter\"]")
 public WebElement shutter;
 @AndroidFindBy(xpath= "//android.widget.ImageButton[@content-desc=\"Done\"]")
 public WebElement photoDone;
-@AndroidFindBy(xpath= "//android.view.View[2]/android.view.View/android.view.View[8]/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(2)")
 public WebElement phoneNumberTextField;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Sign up\")")
 public WebElement signUpButton;
@@ -56,7 +60,7 @@ public WebElement genderField;
 public WebElement skipvideoButton;
 @AndroidFindBy(id= "org.plasticbank.app:id/action_bar_root")
 public WebElement loadedPage;
-@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button")
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"menu\")")
 public WebElement menu;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Logout\")")
 public WebElement logout;
@@ -64,17 +68,23 @@ public WebElement logout;
 public WebElement male;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Collectors\")")
 public WebElement collectorsPannel;
-@AndroidFindBy(xpath = "//android.view.View[3]/android.view.View/android.view.View/android.widget.Button")
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Collection Business\")")
+public WebElement collectionBusinessPannel;
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Collection Point\")")
+public WebElement collectionPoint;
+@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").instance(1)")
+public WebElement registerBusiness;
+@AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").instance(1)")
 public WebElement becomeACollectorButton;
-@AndroidFindBy(xpath= "//android.view.View[3]/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(0)")
 public WebElement firstNameTextField;
-@AndroidFindBy(xpath= "//android.view.View[5]/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(1)")
 public WebElement lastNameTextField;
-@AndroidFindBy(xpath= "//android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.TextView")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.Spinner\").instance(0)")
 public WebElement phoneCountryCodedropdown;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Philippines (+63)\")")
 public WebElement selectPhilipines;
-@AndroidFindBy(xpath= "//android.app.Dialog/android.view.View")
+@AndroidFindBy(uiAutomator= "new UiScrollable(new UiSelector().className(\"android.view.View\").instance(52))")
 public WebElement countrylist;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"OK\")")
 public WebElement oKButton;
@@ -84,12 +94,12 @@ public WebElement dateOfBirthTextField;
 public WebElement  verifyPhoneText;
 @AndroidFindBy(xpath= "//android.app.Dialog/android.view.View/android.view.View[2]/android.view.View[3]")
 public WebElement years;
-@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Qatar (+974)\")")
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Réunion (+262)\")")
 public WebElement selectdummycountry;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"DONE\")")
 public WebElement doneButton;
-@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().scrollable(true)).scrollForward()")
-public WebElement scrollablePhilipines;
+@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().className(\"android.view.View\").instance(52)).scrollForward()")
+public WebElement scrollable;
 @AndroidFindBy(xpath= "//android.view.View/android.view.View/android.app.Dialog/android.view.View")
 public WebElement genders;
 @AndroidFindBy(uiAutomator= "new UiSelector().text(\"camera\")")
@@ -98,19 +108,7 @@ public WebElement takePhoto;
 public WebElement finalconfirmation;
 @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").instance(2)")
 public WebElement camera;
-@AndroidFindBy(xpath ="//android.view.View/android.view.View[4]/android.view.View/android.view.View[1]/android.widget.EditText")
-public WebElement verify1;
-@AndroidFindBy(xpath ="//android.view.View/android.view.View[4]/android.view.View/android.view.View[2]/android.widget.EditText")
-public WebElement verify2;
-@AndroidFindBy(xpath ="//android.view.View/android.view.View[4]/android.view.View/android.view.View[3]/android.widget.EditText")
-public WebElement verify3;
-@AndroidFindBy(xpath ="//android.view.View/android.view.View[4]/android.view.View/android.view.View[4]/android.widget.EditText")
-public WebElement verify4;
-@AndroidFindBy(xpath ="//android.view.View/android.view.View[4]/android.view.View/android.view.View[5]/android.widget.EditText")
-public WebElement verify5;
-@AndroidFindBy(xpath ="//android.view.View/android.view.View[4]/android.view.View/android.view.View[6]/android.widget.EditText")
-public WebElement verify6;
-@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]/android.widget.Button")
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Edit\")")
 public WebElement editButton;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Your account is not verified. Click here to verify.\")")
 public WebElement verifyAccount;
@@ -123,14 +121,15 @@ public WebElement permission;
 
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Allow\")")
 public WebElement allow;
-
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Afghanistan (+93)\")")
+public WebElement afghan;
 
 
 
 //functions:-
 
 public void clickSignUpButton() {
-	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(30));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(permission)));
 	permission.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(signUpButton)));
@@ -146,15 +145,34 @@ public void chooseCollectorsPannel() throws InterruptedException {
 	Thread.sleep(2000);
 	collectorsPannel.click();
 }
+public void chooseCollectionBusinessPannel() throws InterruptedException {
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(collectionBusinessPannel)));
+	Thread.sleep(2000);
+	collectionBusinessPannel.click();
+}
+public void clickCollectionPoint() throws InterruptedException {
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(collectionPoint)));
+	Thread.sleep(2000);
+	collectionPoint.click();
+}
 
 public void clickBecomeAColectorButton() {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(becomeACollectorButton)));
 	becomeACollectorButton.click();
 }
+public void clickRegisterBusiness() throws InterruptedException {
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(registerBusiness)));
+	Thread.sleep(2000);
+	registerBusiness.click();
+}
 public void uploadphoto() throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(takePhoto)));
+	Thread.sleep(1000);
 	takePhoto.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(camera)));
 	Thread.sleep(2000);
@@ -171,8 +189,16 @@ public void uploadphoto() throws InterruptedException {
 	permission.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(allow)));
     allow.click();
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(shutter)));
-	shutter.click();
+    Thread.sleep(5000);
+    PointerInput fingerShutter = new PointerInput(PointerInput.Kind.TOUCH, "fingerShutter");
+    Sequence scrollShutter = new Sequence(fingerShutter, 1);
+    scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 545, 1930));
+    scrollShutter.addAction(fingerShutter.createPointerDown(0));
+    scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(100),
+        PointerInput.Origin.viewport(), 545, 1930));
+    scrollShutter.addAction(fingerShutter.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollShutter));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(photoDone)));
 	photoDone.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(usePhoto)));
@@ -194,7 +220,7 @@ public void enterLastName(String lastname) {
 public void random_enterLastName() {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(lastNameTextField)));
-	String randomLastName = RandomStringUtils.randomAlphabetic(5);
+	//String randomLastName = RandomStringUtils.randomAlphabetic(5);
 	lastNameTextField.sendKeys(randomLastName);
 	System.out.println(randomLastName);
 }
@@ -203,9 +229,12 @@ public void enterPhoneNumberRandom() {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneNumberTextField)));
 	phoneNumberTextField.click();
-	phoneNumberTextField.sendKeys(randomPhoneNumber);
+	phoneNumberTextField.sendKeys(randomPhoneNumberSignUp);
+	android_driver.pressKey(new KeyEvent(AndroidKey.BACK));
     
 }
+
+
 public void enterPhoneNumber(String phoneNumber) {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneNumberTextField)));
@@ -213,24 +242,32 @@ public void enterPhoneNumber(String phoneNumber) {
 	phoneNumberTextField.sendKeys(phoneNumber);
     
 }
+public void chosePhilipines() {
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneCountryCodedropdown)));
+	phoneCountryCodedropdown.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(countrylist)));
+	afghan.click();
+	for (int i = 0; i < 178; i++) {
+		android_driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+	}
+	selectPhilipines.click();  
+	oKButton.click();
+}
 
-public void chosenCountryCode() {
+public void chosenCountryCode() throws InterruptedException{
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneCountryCodedropdown)));
 	phoneCountryCodedropdown.click();
 	
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(countrylist)));
+	for (int i = 0; i < 180; i++) {
+		android_driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+	}
     do {
-        PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-        Sequence scrolla = new Sequence(finger1, 1);
-        scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(0),
-            PointerInput.Origin.viewport(), countrylist.getLocation().getX() + 600, countrylist.getLocation().getY() + 700));
-        scrolla.addAction(finger1.createPointerDown(0));
-        scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(400),
-            PointerInput.Origin.viewport(), countrylist.getLocation().getX() + 600, countrylist.getLocation().getY() + 200));
-        scrolla.addAction(finger1.createPointerUp(0));
-        android_driver.perform(Arrays.asList(scrolla));
-    } while (!isElementDisplayed(selectdummycountry));
+    	scrollable.getLocation();
+		
+		} while (!isElementDisplayed(selectdummycountry));
 
     selectPhilipines.click();  
 	oKButton.click();
@@ -317,6 +354,7 @@ public void verifyAccount() {
    
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(oKButton)));
     oKButton.click();
+    
 	
 }
 
@@ -340,11 +378,11 @@ public void skipForNow() {
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(skipButton)));
      skipButton.click();
 }
-public void fillDetailsRandom(String name,String password) throws InterruptedException {
-	uploadphoto();
+public void fillDetailsRandom(String name, String password) throws InterruptedException{
+    uploadphoto();
 	enterFirstName(name);
 	random_enterLastName();
-	chosenCountryCode();
+	chosePhilipines();
 	enterPhoneNumberRandom();
 	enterDOB();
 	selectGender();
@@ -353,11 +391,11 @@ public void fillDetailsRandom(String name,String password) throws InterruptedExc
 	finalconfirm();
 	skipForNow();
 }
-public void fillDetails(String name,String lastname,String password,String phoneNumber) throws InterruptedException {
+public void fillDetails(String name,String lastname,String password,String phoneNumber) throws InterruptedException, AWTException {
 	uploadphoto();
 	enterFirstName(name);
 	enterLastName(lastname);
-	chosenCountryCode();
+	chosePhilipines();
 	enterPhoneNumber(phoneNumber);
 	enterDOB();
 	selectGender();
@@ -368,22 +406,22 @@ public void fillDetails(String name,String lastname,String password,String phone
 }
 
 
-public void signUpRandom(String name,String password) throws InterruptedException {
+public void signUpRandom(String name,String password) throws InterruptedException{
 	clickSignUpButton();
-	chooseCollectorsPannel();
-	clickBecomeAColectorButton();
+	chooseCollectionBusinessPannel();
+	clickCollectionPoint();
+	clickRegisterBusiness();
 	fillDetailsRandom(name,password);
 	verifyAccount();
-	clickmenu();
-	clicklogout();
+	
 }
-public void signUp(String name,String lastname,String password,String phoneNumber) throws InterruptedException {
+public void signUp(String name,String lastname,String password,String phoneNumber) throws InterruptedException, AWTException {
 	clickSignUpButton();
-	chooseCollectorsPannel();
-	clickBecomeAColectorButton();
+	chooseCollectionBusinessPannel();
+	clickCollectionPoint();
+	clickRegisterBusiness();
 	fillDetails(name,lastname,password,phoneNumber);
 	verifyAccount();
-	clickmenu();
-	clicklogout();
+	
 }
 }

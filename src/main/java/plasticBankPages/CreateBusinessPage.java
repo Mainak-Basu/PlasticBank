@@ -125,14 +125,23 @@ public void createBranch() throws InterruptedException {
 	cameraButton.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(takeA_PictureOption)));
 	takeA_PictureOption.click();
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(permission)));
-	permission.click();
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(allow)));
-	allow.click();
-	Thread.sleep(10000);
+	/*
+	 * wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(
+	 * permission))); permission.click();
+	 * wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(allow
+	 * ))); allow.click();
+	 */
+	Thread.sleep(7000);
 	// android_driver.pressKey(new KeyEvent(AndroidKey.CAMERA));
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(shutter)));
-	shutter.click();
+	PointerInput fingerShutter = new PointerInput(PointerInput.Kind.TOUCH, "fingerShutter");
+    Sequence scrollShutter = new Sequence(fingerShutter, 1);
+    scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollShutter.addAction(fingerShutter.createPointerDown(0));
+    scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(100),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollShutter.addAction(fingerShutter.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollShutter));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(photoDone)));
 	photoDone.click();
 	Thread.sleep(2000);
@@ -181,7 +190,7 @@ public void createBranch() throws InterruptedException {
     doneButton.click();
  }
 
-public void addMemberToCreatedBranch() throws InterruptedException {
+public void addMemberToCreatedBranch(String randomMemberPhoneNumber) throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(40));
 	Thread.sleep(2000);
 	PointerInput fingermembertab = new PointerInput(PointerInput.Kind.TOUCH, "fingermembertab");
@@ -200,8 +209,7 @@ public void addMemberToCreatedBranch() throws InterruptedException {
 	branchMemberNameTextField.sendKeys("Gayas "+randomMemberName);
 	
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(branchMemberPhoneNumberTextField)));
-	String randomMemberPhoneNumberName = RandomStringUtils.randomNumeric(8);
-	branchMemberPhoneNumberTextField.sendKeys(randomMemberPhoneNumberName);
+	branchMemberPhoneNumberTextField.sendKeys(randomMemberPhoneNumber);
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(nextButton)));
 	nextButton.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(genderButton)));

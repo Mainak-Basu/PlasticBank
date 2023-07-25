@@ -5,9 +5,12 @@
     <classes>
       <class name="test.Tests">
         <methods>
+          <include name="generateRandomLastName"/>
+          <include name="teardown"/>
           <include name="createBanchAndMember"/>
           <include name="setup"/>
-          <include name="generateRandomNumber"/>
+          <include name="generateRandomNumber2"/>
+          <include name="generateRandomNumber1"/>
         </methods>
       </class> <!-- test.Tests -->
     </classes>
