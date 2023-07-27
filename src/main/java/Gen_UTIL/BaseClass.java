@@ -23,6 +23,7 @@ public static WebDriver chrome_driver;
 public static AndroidDriver android_driver;
 protected static String randomPhoneNumberSignUp;
 protected static String randomPhoneNumberMemberToBranch;
+protected static String randomPhoneNumberProcessor;
 
 protected static String randomLastName;
 public String name;
@@ -31,6 +32,7 @@ public String phoneNumber;
 public String randomNumberDuringSignUp;
 public String randomNumberMemberToBranch;
 public String randomLName;
+public String randomProcessorNumber;
 	
 	@SuppressWarnings("deprecation")
 	@BeforeClass
@@ -42,6 +44,7 @@ public String randomLName;
 		 randomNumberDuringSignUp="+63"+randomPhoneNumberSignUp;
 	     randomLName= randomLastName;
 	     randomNumberMemberToBranch="+63"+randomPhoneNumberMemberToBranch;
+	     randomProcessorNumber="+63"+randomPhoneNumberProcessor;
 	     
 	     
 	  WebDriverManager.chromedriver().setup(); chrome_driver=new ChromeDriver();
@@ -96,6 +99,15 @@ public String randomLName;
 			    protected String getRandomPhoneNumber2() {
 			        return randomPhoneNumberMemberToBranch;
 			    } 
+			    @BeforeSuite
+				 public void generateRandomNumberProcessor() {
+			    	randomPhoneNumberProcessor = RandomStringUtils.randomNumeric(8);
+				        System.out.println(randomPhoneNumberProcessor);
+				    }
+
+				    protected String getRandomNumberProcessor() {
+				        return randomPhoneNumberProcessor;
+				    } 
 		    
 	
 }

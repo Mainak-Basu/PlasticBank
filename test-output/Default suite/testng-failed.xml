@@ -6,8 +6,9 @@
       <class name="test.Tests">
         <methods>
           <include name="generateRandomLastName"/>
+          <include name="generateRandomNumberProcessor"/>
           <include name="teardown"/>
-          <include name="createBanchAndMember"/>
+          <include name="transaction"/>
           <include name="setup"/>
           <include name="generateRandomNumber2"/>
           <include name="generateRandomNumber1"/>

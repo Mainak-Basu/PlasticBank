@@ -108,6 +108,101 @@ public WebElement branchMemberPhoneNumberTextField;
 public WebElement genderButton;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Male\")")
 public WebElement maleOption;
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"REGISTER MEMBER\")")
+public WebElement registerUser;
+
+//processor elements:-
+
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Processor\")")
+public WebElement processorPanel;
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"CREATE BUSINESS\")")
+public WebElement createBusiness;
+
+
+
+public void createProcessor() throws InterruptedException {
+	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(40));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menuButton)));
+	menuButton.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(createBusinessButton)));
+	createBusinessButton.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(recyclingBusinessPanel)));
+	recyclingBusinessPanel.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(processorPanel)));
+	processorPanel.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(createBusiness)));
+	createBusiness.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(cameraButton)));
+	cameraButton.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(takeA_PictureOption)));
+	takeA_PictureOption.click();
+	
+	/*
+	 * wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(
+	 * permission))); permission.click();
+	 * wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(allow
+	 * ))); allow.click();
+	 */
+	 
+	Thread.sleep(7000);
+	PointerInput fingerShutter = new PointerInput(PointerInput.Kind.TOUCH, "fingerShutter");
+    Sequence scrollShutter = new Sequence(fingerShutter, 1);
+    scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollShutter.addAction(fingerShutter.createPointerDown(0));
+    scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(100),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollShutter.addAction(fingerShutter.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollShutter));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(photoDone)));
+	photoDone.click();
+	Thread.sleep(2000);
+	PointerInput fingerconfirm = new PointerInput(PointerInput.Kind.TOUCH, "fingerconfirm");
+    Sequence scrollconfirm = new Sequence(fingerconfirm, 1);
+    scrollconfirm.addAction(fingerconfirm.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollconfirm.addAction(fingerconfirm.createPointerDown(0));
+    scrollconfirm.addAction(fingerconfirm.createPointerMove(Duration.ofMillis(100),
+        PointerInput.Origin.viewport(), 550, 2030));
+    scrollconfirm.addAction(fingerconfirm.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollconfirm));
+    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(businessNameTextField)));
+	String randomProcessorName = RandomStringUtils.randomAlphabetic(5);
+	businessNameTextField.sendKeys("Gayas "+randomProcessorName);
+	Thread.sleep(2000);
+	PointerInput fingerscrolluptocheckbox = new PointerInput(PointerInput.Kind.TOUCH, "fingerscrolluptocheckbox");
+    Sequence scrollscrolluptocheckbox = new Sequence(fingerscrolluptocheckbox, 1);
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), 170, 1870));
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerDown(0));
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerMove(Duration.ofMillis(1000),
+        PointerInput.Origin.viewport(), 170, 300));
+    scrollscrolluptocheckbox.addAction(fingerscrolluptocheckbox.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollscrolluptocheckbox));
+    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(mondayCheckBox)));
+    mondayCheckBox.click();
+    tuesdayCheckBox.click();
+    wednesdayCheckBox.click();
+    thursdayCheckBox.click();
+    fridayCheckBox.click();
+    saturdayCheckBox.click();
+    sundayCheckBox.click();
+    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(saveButton)));
+    saveButton.click();
+    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(OKButton)));
+    OKButton.click();
+    Thread.sleep(2000);
+    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(cashValuePerKgTextField)));
+    cashValuePerKgTextField.click();
+    cashValuePerKgTextField.sendKeys("10");
+    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(addButton)));
+    addButton.click();
+    wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doneButton)));
+    doneButton.click();
+}
+
+
+
 
 public void createBranch() throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(40));
@@ -155,8 +250,8 @@ public void createBranch() throws InterruptedException {
     scrollconfirm.addAction(fingerconfirm.createPointerUp(0));
     android_driver.perform(Arrays.asList(scrollconfirm));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(businessNameTextField)));
-	String randomBusinessName = RandomStringUtils.randomAlphabetic(5);
-	businessNameTextField.sendKeys("Gayas "+randomBusinessName);
+	String randomBranchName = RandomStringUtils.randomAlphabetic(5);
+	businessNameTextField.sendKeys("Gayas "+randomBranchName);
 	Thread.sleep(2000);
 	PointerInput fingerscrolluptocheckbox = new PointerInput(PointerInput.Kind.TOUCH, "fingerscrolluptocheckbox");
     Sequence scrollscrolluptocheckbox = new Sequence(fingerscrolluptocheckbox, 1);
@@ -192,19 +287,11 @@ public void createBranch() throws InterruptedException {
 
 public void addMemberToCreatedBranch(String randomMemberPhoneNumber) throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(40));
+	Thread.sleep(1000);
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(registerUser)));
+	registerUser.click();
 	Thread.sleep(2000);
-	PointerInput fingermembertab = new PointerInput(PointerInput.Kind.TOUCH, "fingermembertab");
-    Sequence scrollmembertab = new Sequence(fingermembertab, 1);
-    scrollmembertab.addAction(fingermembertab.createPointerMove(Duration.ofMillis(0),
-        PointerInput.Origin.viewport(), 690, 2050));
-    scrollmembertab.addAction(fingermembertab.createPointerDown(0));
-    scrollmembertab.addAction(fingermembertab.createPointerMove(Duration.ofMillis(100),
-        PointerInput.Origin.viewport(), 690, 2050));
-    scrollmembertab.addAction(fingermembertab.createPointerUp(0));
-    android_driver.perform(Arrays.asList(scrollmembertab));
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(addmember)));
-	addmember.click();
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(addmember)));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(branchMemberNameTextField)));
 	String randomMemberName = RandomStringUtils.randomAlphabetic(5);
 	branchMemberNameTextField.sendKeys("Gayas "+randomMemberName);
 	

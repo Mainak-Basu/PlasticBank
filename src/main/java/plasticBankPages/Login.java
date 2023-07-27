@@ -1,8 +1,11 @@
 package plasticBankPages;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,6 +28,8 @@ public class Login extends BaseClass{
 		public WebElement finalLogin;
 		@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Logout\")")
 	    public WebElement logoutButton;
+		@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Edit\")")
+	    public WebElement edit;
 		@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Settings\")")
 	    public WebElement settingsButton;
 		@AndroidFindBy(uiAutomator = "new UiSelector().text(\"menu\")")

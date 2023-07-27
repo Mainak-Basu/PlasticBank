@@ -5,9 +5,11 @@ import Gen_UTIL.BaseClass;
 import alchemypages.AlchemyLoginPage;
 import alchemypages.Alchemy_Branches_Tab;
 import alchemypages.Alchemy_Members_Tab;
+import alchemypages.Alchemy_Processors_Tab;
 import plasticBankPages.CreateBusinessPage;
 import plasticBankPages.Login;
 import plasticBankPages.SignUpPage;
+import plasticBankPages.Transaction;
 
 public class Tests extends BaseClass{
 	
@@ -52,31 +54,60 @@ public void createBanchAndMember() throws InterruptedException {
 	amt.memberAdded.click();
 	assert amt.memberAdded.getText().contains("Gayas");
 	amt.editMemberDetails();
-	l.menu();
-	  l.logout();
-	  l.loginRandom(randomNumberMemberToBranch, password);
-	  l.menu();
-	  l.logout();
-	amt.suspendMember(); 
-	  l.loginRandom(randomNumberMemberToBranch, password);
-	  l.oK();
-	  l.enterRandomPhoneNumber(randomNumberDuringSignUp);
-	  l.enterPassword(password);
-	  l.clickloginButtonfinal();
-	  l.clickSuspendedMemebr();
-	  l.oK();
+	Login l1=new Login(android_driver);
+	l1.menu();
+	  l1.logout();
+	  l1.loginRandom(randomNumberMemberToBranch, password);
+	  l1.menu();
+	  l1.logout();
+	  Alchemy_Members_Tab amt1 = new Alchemy_Members_Tab(chrome_driver);
+	  amt1.suspendMember(); 
+	  Login l3=new Login(android_driver);
+	  l3.loginRandom(randomNumberMemberToBranch, password);
+	  l3.oK();
+	  l3.enterRandomPhoneNumber(randomNumberDuringSignUp);
+	  l3.enterPassword(password);
+	  l3.clickloginButtonfinal();
+	  l3.clickSuspendedMemebr();
+	  l3.oK();
 	  Alchemy_Branches_Tab abt= new Alchemy_Branches_Tab(chrome_driver);
-	  abt.editBranchInAlchemy();
-	  l.menu();
-	  l.logout();
-	  l.loginRandom(randomNumberDuringSignUp, password);
-	  l.menu();
+	  abt.editBranchInAlchemy(randomNumberDuringSignUp);
+	  Login l2=new Login(android_driver);
+	  l2.menu();
+	  l2.logout();
+	  l2.loginRandom(randomNumberDuringSignUp, password);
+	  l2.menu();
 	  Thread.sleep(4000);
-	  l.logout();
-	  
-
-	  
-		  
-	 
+	  l2.logout();
 }
+
+
+@Test(priority=2)  
+public void myTest() throws InterruptedException {
+	Login l=new Login(android_driver);
+	l.loginRandom(randomNumberDuringSignUp,password);
+	CreateBusinessPage cbp =new CreateBusinessPage(android_driver);
+    cbp.createProcessor();
+     Alchemy_Processors_Tab apt = new Alchemy_Processors_Tab(chrome_driver);
+    apt.SearchAndEditProcessorInAlchemy(randomNumberDuringSignUp);
+    Thread.sleep(2000);
+    Login l1=new Login(android_driver);
+    l1.menu();
+    Thread.sleep(2000);
+    l1.logout();
+	l1.loginRandom(randomNumberDuringSignUp, password);
+	l1.menu();
+	Thread.sleep(2000);
+	l1.logout();
+}
+
+@Test
+public void transaction() throws InterruptedException {
+	
+	Login l=new Login(android_driver);
+	l.login("+63789654", password);
+	Transaction t= new Transaction(android_driver);
+	t.getSibakFrom("+63123456789987654321");
+}
+
 }

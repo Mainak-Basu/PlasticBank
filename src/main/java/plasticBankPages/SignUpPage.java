@@ -61,7 +61,7 @@ public WebElement skipvideoButton;
 @AndroidFindBy(id= "org.plasticbank.app:id/action_bar_root")
 public WebElement loadedPage;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"menu\")")
-public WebElement menu;
+public WebElement menuButton;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Logout\")")
 public WebElement logout;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Male\")")
@@ -92,7 +92,7 @@ public WebElement oKButton;
 public WebElement dateOfBirthTextField;
 @AndroidFindBy(uiAutomator= "new UiSelector().text(\"Verify Phone\")")
 public WebElement  verifyPhoneText;
-@AndroidFindBy(xpath= "//android.app.Dialog/android.view.View/android.view.View[2]/android.view.View[3]")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.view.View\").instance(60)")
 public WebElement years;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Réunion (+262)\")")
 public WebElement selectdummycountry;
@@ -100,7 +100,7 @@ public WebElement selectdummycountry;
 public WebElement doneButton;
 @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector().className(\"android.view.View\").instance(52)).scrollForward()")
 public WebElement scrollable;
-@AndroidFindBy(xpath= "//android.view.View/android.view.View/android.app.Dialog/android.view.View")
+@AndroidFindBy(uiAutomator= "new UiSelector().text(\"Gender\")")
 public WebElement genders;
 @AndroidFindBy(uiAutomator= "new UiSelector().text(\"camera\")")
 public WebElement takePhoto;
@@ -112,7 +112,7 @@ public WebElement camera;
 public WebElement editButton;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Your account is not verified. Click here to verify.\")")
 public WebElement verifyAccount;
-@AndroidFindBy(xpath ="//android.app.Dialog/android.view.View/android.view.View/android.widget.EditText")
+@AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(2)")
 public WebElement enterSMS;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"arrow back\")")
 public WebElement arrowBack;
@@ -358,10 +358,10 @@ public void verifyAccount() {
 	
 }
 
-public void clickmenu() {
+public void clickmenu() throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menu)));
-	menu.click();
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menuButton)));
+	menuButton.click();
 }
 public void clickbackarrow() {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));

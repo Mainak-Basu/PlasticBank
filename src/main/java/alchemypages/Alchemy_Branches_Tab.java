@@ -42,12 +42,11 @@ public void waitforloader() {
 
 
 
-public void editBranchInAlchemy() {
+public void editBranchInAlchemy(String numberToBeEdited) {
 	branches_TAB.click();
 	waitforloader();
 	phoneSearch.clear();
-	System.out.println("+63"+randomPhoneNumberSignUp);
-	phoneSearch.sendKeys("+63"+randomPhoneNumberSignUp);
+	phoneSearch.sendKeys(numberToBeEdited);
 	
 	waitforloader();
 	branchAdded.click();
