@@ -1,6 +1,7 @@
 package plasticBankPages;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -117,6 +118,10 @@ public WebElement registerUser;
 public WebElement processorPanel;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"CREATE BUSINESS\")")
 public WebElement createBusiness;
+
+public static String randomNumberBranchMember;
+public static ArrayList<String> randomNumberBranchMemberList = new ArrayList<>();
+
 
 
 
@@ -285,7 +290,7 @@ public void createBranch() throws InterruptedException {
     doneButton.click();
  }
 
-public void addMemberToCreatedBranch(String randomMemberPhoneNumber) throws InterruptedException {
+public void addMemberToCreatedBranch() throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(40));
 	Thread.sleep(1000);
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(registerUser)));
@@ -296,7 +301,11 @@ public void addMemberToCreatedBranch(String randomMemberPhoneNumber) throws Inte
 	branchMemberNameTextField.sendKeys("Gayas "+randomMemberName);
 	
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(branchMemberPhoneNumberTextField)));
-	branchMemberPhoneNumberTextField.sendKeys(randomMemberPhoneNumber);
+	randomNumberBranchMember = RandomStringUtils.randomNumeric(8);
+	randomNumberBranchMemberList.add(randomNumberBranchMember);
+	
+	branchMemberPhoneNumberTextField.sendKeys(randomNumberBranchMember);
+	
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(nextButton)));
 	nextButton.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(genderButton)));

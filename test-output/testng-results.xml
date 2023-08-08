@@ -2,36 +2,36 @@
 <testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-27T19:28:46 IST" name="Default suite" finished-at="2023-07-27T19:29:43 IST" duration-ms="56478">
+  <suite started-at="2023-08-01T14:50:28 IST" name="Default suite" finished-at="2023-08-01T14:51:53 IST" duration-ms="85101">
     <groups>
     </groups>
-    <test started-at="2023-07-27T19:28:46 IST" name="Default test" finished-at="2023-07-27T19:29:43 IST" duration-ms="56478">
+    <test started-at="2023-08-01T14:50:28 IST" name="Default test" finished-at="2023-08-01T14:51:53 IST" duration-ms="85101">
       <class name="test.Tests">
-        <test-method is-config="true" signature="generateRandomLastName()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-07-27T19:28:46 IST" name="generateRandomLastName" finished-at="2023-07-27T19:28:46 IST" duration-ms="12" status="PASS">
+        <test-method is-config="true" signature="generateRandomLastName()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-08-01T14:50:28 IST" name="generateRandomLastName" finished-at="2023-08-01T14:50:28 IST" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateRandomLastName -->
-        <test-method is-config="true" signature="generateRandomNumber1()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-07-27T19:28:46 IST" name="generateRandomNumber1" finished-at="2023-07-27T19:28:46 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="generateRandomNumber1()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-08-01T14:50:28 IST" name="generateRandomNumber1" finished-at="2023-08-01T14:50:28 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateRandomNumber1 -->
-        <test-method is-config="true" signature="generateRandomNumberProcessor()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-07-27T19:28:46 IST" name="generateRandomNumberProcessor" finished-at="2023-07-27T19:28:46 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- generateRandomNumberProcessor -->
-        <test-method is-config="true" signature="generateRandomNumber2()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-07-27T19:28:46 IST" name="generateRandomNumber2" finished-at="2023-07-27T19:28:46 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="generateRandomNumber2()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-08-01T14:50:28 IST" name="generateRandomNumber2" finished-at="2023-08-01T14:50:28 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateRandomNumber2 -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-07-27T19:28:46 IST" name="setup" finished-at="2023-07-27T19:29:14 IST" duration-ms="27794" status="PASS">
+        <test-method is-config="true" signature="generateRandomNumberProcessor()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-08-01T14:50:28 IST" name="generateRandomNumberProcessor" finished-at="2023-08-01T14:50:28 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateRandomNumberProcessor -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-08-01T14:50:28 IST" name="setup" finished-at="2023-08-01T14:51:01 IST" duration-ms="33083" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="transaction()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-07-27T19:29:14 IST" name="transaction" finished-at="2023-07-27T19:29:42 IST" duration-ms="27254" status="PASS">
+        <test-method signature="transaction()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-08-01T14:51:01 IST" name="transaction" finished-at="2023-08-01T14:51:51 IST" duration-ms="49952" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- transaction -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-07-27T19:29:42 IST" name="teardown" finished-at="2023-07-27T19:29:43 IST" duration-ms="1220" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:test.Tests@6b09fb41]" started-at="2023-08-01T14:51:51 IST" name="teardown" finished-at="2023-08-01T14:51:53 IST" duration-ms="1736" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

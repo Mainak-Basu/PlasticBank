@@ -2,6 +2,7 @@ package plasticBankPages;
 
 import java.awt.*;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -50,6 +51,8 @@ public WebElement photoDone;
 public WebElement phoneNumberTextField;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Sign up\")")
 public WebElement signUpButton;
+@AndroidFindBy(uiAutomator = "new UiSelector().text(\"CANCEL\")")
+public WebElement cancel;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Use Photo\")")
 public WebElement usePhoto;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Skip for now\")")
@@ -124,19 +127,26 @@ public WebElement allow;
 @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Afghanistan (+93)\")")
 public WebElement afghan;
 
-
+public static String randomNumberSignUp;
+public static ArrayList<String> randomNumberSignUpList = new ArrayList<>();
 
 //functions:-
 
 public void clickSignUpButton() {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(30));
+	try {
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(permission)));
 	permission.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(signUpButton)));
 	signUpButton.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(skipvideoButton)));
 	skipvideoButton.click();
-	
+	}catch(Exception e) {
+		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(signUpButton)));
+		signUpButton.click();
+		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(skipvideoButton)));
+		skipvideoButton.click();
+	}
 }
 
 public void chooseCollectorsPannel() throws InterruptedException {
@@ -185,6 +195,8 @@ public void uploadphoto() throws InterruptedException {
         PointerInput.Origin.viewport(), camera.getLocation().getX() + 400, camera.getLocation().getY() + 50));
     scrolla.addAction(finger1.createPointerUp(0));
     android_driver.perform(Arrays.asList(scrolla));
+    
+    try {
     wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(permission)));
 	permission.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(allow)));
@@ -203,6 +215,22 @@ public void uploadphoto() throws InterruptedException {
 	photoDone.click();
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(usePhoto)));
 	usePhoto.click();
+    }catch(Exception e) {
+    	Thread.sleep(5000);
+        PointerInput fingerShutter = new PointerInput(PointerInput.Kind.TOUCH, "fingerShutter");
+        Sequence scrollShutter = new Sequence(fingerShutter, 1);
+        scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(0),
+            PointerInput.Origin.viewport(), 545, 1930));
+        scrollShutter.addAction(fingerShutter.createPointerDown(0));
+        scrollShutter.addAction(fingerShutter.createPointerMove(Duration.ofMillis(100),
+            PointerInput.Origin.viewport(), 545, 1930));
+        scrollShutter.addAction(fingerShutter.createPointerUp(0));
+        android_driver.perform(Arrays.asList(scrollShutter));
+    	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(photoDone)));
+    	photoDone.click();
+    	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(usePhoto)));
+    	usePhoto.click();
+    }
 	
 }
 
@@ -220,7 +248,7 @@ public void enterLastName(String lastname) {
 public void random_enterLastName() {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(lastNameTextField)));
-	//String randomLastName = RandomStringUtils.randomAlphabetic(5);
+	String randomLastName = RandomStringUtils.randomAlphabetic(5);
 	lastNameTextField.sendKeys(randomLastName);
 	System.out.println(randomLastName);
 }
@@ -229,7 +257,9 @@ public void enterPhoneNumberRandom() {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneNumberTextField)));
 	phoneNumberTextField.click();
-	phoneNumberTextField.sendKeys(randomPhoneNumberSignUp);
+	randomNumberSignUp = RandomStringUtils.randomNumeric(8);
+	randomNumberSignUpList.add("+63"+randomNumberSignUp);
+	phoneNumberTextField.sendKeys(randomNumberSignUp);
 	android_driver.pressKey(new KeyEvent(AndroidKey.BACK));
     
 }
@@ -255,32 +285,6 @@ public void chosePhilipines() {
 	oKButton.click();
 }
 
-public void chosenCountryCode() throws InterruptedException{
-	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(phoneCountryCodedropdown)));
-	phoneCountryCodedropdown.click();
-	
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(countrylist)));
-	for (int i = 0; i < 180; i++) {
-		android_driver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
-	}
-    do {
-    	scrollable.getLocation();
-		
-		} while (!isElementDisplayed(selectdummycountry));
-
-    selectPhilipines.click();  
-	oKButton.click();
-}
-
-private boolean isElementDisplayed(WebElement element) {
-    try {
-        return element.isDisplayed();
-    } catch (NoSuchElementException | StaleElementReferenceException e) {
-        return false;
-    }
-   
-}
 
 public void enterDOB() throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(android_driver,Duration.ofSeconds(10));
@@ -288,16 +292,16 @@ public void enterDOB() throws InterruptedException {
 	dateOfBirthTextField.click();
 	
 	
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(years)));
-	PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-    Sequence scrolla = new Sequence(finger1, 1);
-    scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(0),
-        PointerInput.Origin.viewport(), years.getLocation().getX() + 300, years.getLocation().getY() + 300));
-    scrolla.addAction(finger1.createPointerDown(0));
-    scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(100),
-        PointerInput.Origin.viewport(), years.getLocation().getX() + 300, years.getLocation().getY() + 10));
-    scrolla.addAction(finger1.createPointerUp(0));
-    android_driver.perform(Arrays.asList(scrolla));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(cancel)));
+	PointerInput fingerYears = new PointerInput(PointerInput.Kind.TOUCH, "fingerYears");
+    Sequence scrollYears = new Sequence(fingerYears, 1);
+    scrollYears.addAction(fingerYears.createPointerMove(Duration.ofMillis(0),
+        PointerInput.Origin.viewport(), cancel.getLocation().getX()+100, cancel.getLocation().getY() + 500));
+    scrollYears.addAction(fingerYears.createPointerDown(0));
+    scrollYears.addAction(fingerYears.createPointerMove(Duration.ofMillis(100),
+        PointerInput.Origin.viewport(), cancel.getLocation().getX()+100, cancel.getLocation().getY() + 100));
+    scrollYears.addAction(fingerYears.createPointerUp(0));
+    android_driver.perform(Arrays.asList(scrollYears));
 Thread.sleep(1000);
     doneButton.click();
 	}
